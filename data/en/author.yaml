@@ -1,0 +1,23 @@
+author:
+  name: "Nawin Aswin"
+  description: "Research, projects, and technical writing."
+  location: "Earth"
+  email: "hello@example.com"
+  github: "https://github.com/nawinaswin"
+  linkedin: "https://linkedin.com/in/nawinaswin"
+  twitter: "https://twitter.com/nawinaswin"
+  honors:
+    - institution: "Example University"
+      title: "Summa Cum Laude"
+      date: "May 2020"
+  certifications:
+    - title: "Example Certification"
+      company: "Example Corp"
+      date: "Valid until Jan 2025"
+      url: "https://example.com"
+  voluntary:
+    - role: "Community Helper"
+      organization: "Local Charity Group"
+      period: "2021 - Present"
+      description: "Contributing to open source and local tech education."
+      url: "https://example.com/community"

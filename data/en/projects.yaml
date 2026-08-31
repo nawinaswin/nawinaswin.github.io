@@ -1,0 +1,6 @@
+projects:
+  - title: "Distributed Log"
+    image: "/images/project-placeholder.jpg"
+    tech: "Go, Raft, Docker"
+    description: "A distributed log implementation based on the Raft consensus algorithm."
+    link: "/projects/distributed-log"

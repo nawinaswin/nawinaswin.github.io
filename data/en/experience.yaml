@@ -1,0 +1,19 @@
+experience:
+  - company: "Example University"
+    role: "PhD Candidate"
+    period: "2022 - Present"
+    country: "USA"
+    description: "Researching distributed systems and consensus algorithms."
+    technologies:
+      - "Go"
+      - "Rust"
+      - "Kubernetes"
+  - company: "Tech Corp"
+    role: "Software Engineer"
+    period: "2020 - 2022"
+    country: "USA"
+    description: "Built scalable backend services and internal tools."
+    technologies:
+      - "Python"
+      - "PostgreSQL"
+      - "Docker"
