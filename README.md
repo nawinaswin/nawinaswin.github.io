@@ -4,7 +4,7 @@ Static site built with [Hugo](https://gohugo.io/) and the [hugo-noir](https://gi
 
 ## Prerequisites
 
-- Hugo extended v0.92.0 or later
+- Hugo extended v0.167.0 (the version used by the deployment workflow)
 - Git
 
 ## Directory Structure
@@ -50,6 +50,14 @@ Static site built with [Hugo](https://gohugo.io/) and the [hugo-noir](https://gi
 
 ## Local Development
 
+After cloning the repository, fetch the theme:
+
+```bash
+git submodule update --init --recursive
+```
+
+Then start the preview:
+
 ```bash
 hugo server --buildDrafts
 ```
@@ -85,11 +93,48 @@ hugo new projects/my-project.md
 
 ## Deployment
 
-This site is configured for GitHub Pages via GitHub Actions.
+The workflow in `.github/workflows/deploy.yml` builds and deploys the site to
+GitHub Pages whenever a commit is pushed to `main`. It uses Hugo extended
+v0.167.0, fetches the theme submodule, and publishes the generated `public/` directory. You do not need to
+build locally or commit `public/` to deploy.
 
-1. Push this repository to GitHub.
-2. Go to **Settings → Pages** and set **Source** to **GitHub Actions**.
-3. Every push to `main` will automatically build and deploy the site.
+### One-time GitHub setup
+
+1. Open [this repository's Pages settings](https://github.com/nawinaswin/nawinaswin.github.io/settings/pages).
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**. The
+   repository already contains the workflow, so no additional template is needed.
+3. Commit and push your changes to `main`, including `.github/workflows/deploy.yml`.
+4. Open the [Actions tab](https://github.com/nawinaswin/nawinaswin.github.io/actions)
+   and wait for **Deploy to GitHub Pages** to finish successfully.
+5. Visit [https://nawinaswin.github.io/](https://nawinaswin.github.io/).
+
+The workflow uses GitHub's automatic token; no personal access token or deployment
+secret needs to be added. If Actions are disabled for the repository, enable them
+in **Settings → Actions → General** and allow the actions used by this workflow.
+
+See [GitHub's custom Pages workflow documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
+
+### Publishing later changes
+
+From the repository on the `main` branch:
+
+```bash
+git add .
+git commit -m "Update website"
+git push origin main
+```
+
+The push triggers a new build and deployment automatically. A local commit alone
+does not update the live site. Pushes to other branches are not deployed until
+merged into `main`.
+
+To retry a deployment without another commit, open **Actions → Deploy to GitHub
+Pages → Run workflow** and select `main`. This is also useful if the first run
+failed before the Pages source was configured. If deployment waits for approval,
+check whether the `github-pages` environment has required reviewers configured.
+
+Pages marked `draft: true` are visible in the local preview with `--buildDrafts`,
+but are excluded from the production build. Set `draft: false` when ready to publish.
 
 ## Discoverability
 

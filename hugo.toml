@@ -1,6 +1,6 @@
 baseURL = 'https://nawinaswin.github.io/'
 locale = 'en-us'
-title = 'Nawin Aswin - Research & Portfolio'
+title = 'Nawin Sakthivelan - Research & Portfolio'
 theme = 'hugo-noir'
 
 relativeURLs = true
@@ -15,51 +15,16 @@ disableKinds = ['RSS', 'sitemap']
   tag = 'tags'
 
 [params]
-  name = 'Nawin Aswin'
-  description = 'Research, projects, and technical writing.'
-  location = 'Earth'
-  email = 'hello@example.com'
+  name = 'Nawin Sakthivelan'
+  description = 'Machine learning engineer working on model alignment, efficient inference, and production ML systems.'
+  location = 'San Francisco, CA'
+  email = 'nawinaswins@gmail.com'
   github = 'https://github.com/nawinaswin'
   github_username = 'nawinaswin'
-  linkedin = 'https://linkedin.com/in/nawinaswin'
+  linkedin = 'https://www.linkedin.com/in/nawinsakthivelan/'
+  linkedin_username = 'nawinsakthivelan'
   twitter = 'https://twitter.com/nawinaswin'
   twitter_username = 'nawinaswin'
-
-  [params.tech]
-    row1 = [
-      { icon = 'devicon-python-plain', name = 'Python' },
-      { icon = 'devicon-javascript-plain', name = 'JavaScript' },
-      { icon = 'devicon-typescript-plain', name = 'TypeScript' },
-      { icon = 'devicon-react-original', name = 'React' },
-      { icon = 'devicon-html5-plain', name = 'HTML5' },
-      { icon = 'devicon-css3-plain', name = 'CSS3' }
-    ]
-    row2 = [
-      { icon = 'devicon-docker-plain', name = 'Docker' },
-      { icon = 'devicon-git-plain', name = 'Git' },
-      { icon = 'devicon-hugo-plain', name = 'Hugo' },
-      { icon = 'devicon-linux-plain', name = 'Linux' },
-      { icon = 'devicon-postgresql-plain', name = 'PostgreSQL' },
-      { icon = 'devicon-tailwindcss-plain', name = 'TailwindCSS' }
-    ]
-
-  [[params.honors]]
-    institution = 'Example University'
-    title = 'Summa Cum Laude'
-    date = 'May 2020'
-
-  [[params.certifications]]
-    title = 'Example Certification'
-    company = 'Example Corp'
-    date = 'Valid until Jan 2025'
-    url = 'https://example.com'
-
-  [[params.voluntary]]
-    role = 'Community Helper'
-    organization = 'Local Charity Group'
-    period = '2021 - Present'
-    description = 'Contributing to open source and local tech education.'
-    url = 'https://example.com/community'
 
 [menu]
   [[menu.main]]
