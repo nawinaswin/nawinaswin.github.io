@@ -50,7 +50,7 @@
                         {{ end }}
                     </div>
                 </div>
-                <button id="theme-toggle-button-desktop" class="ml-4 inline-block text-lg text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 p-2 rounded-md">
+                <button id="theme-toggle-button-desktop" type="button" aria-label="Switch background colour" class="ml-4 inline-block text-lg text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 p-2 rounded-md">
                   <svg id="theme-toggle-dark-icon-desktop" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5">
                     <path d="M21.7519 15.0021C20.597 15.484 19.3296 15.7501 18 15.7501C12.6152 15.7501 8.25 11.3849 8.25 6.00011C8.25 4.67052 8.51614 3.40308 8.99806 2.24817C5.47566 3.71798 3 7.19493 3 11.2501C3 16.6349 7.36522 21.0001 12.75 21.0001C16.8052 21.0001 20.2821 18.5245 21.7519 15.0021Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
@@ -91,7 +91,7 @@
                             {{ end }}
                         </div>
                     </div>
-                    <button id="theme-toggle-button-mobile" class="text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 flex items-center p-2 rounded-md">
+                    <button id="theme-toggle-button-mobile" type="button" aria-label="Switch background colour" class="text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 flex items-center p-2 rounded-md">
                       <svg id="theme-toggle-dark-icon-mobile" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5">
                         <path d="M21.7519 15.0021C20.597 15.484 19.3296 15.7501 18 15.7501C12.6152 15.7501 8.25 11.3849 8.25 6.00011C8.25 4.67052 8.51614 3.40308 8.99806 2.24817C5.47566 3.71798 3 7.19493 3 11.2501C3 16.6349 7.36522 21.0001 12.75 21.0001C16.8052 21.0001 20.2821 18.5245 21.7519 15.0021Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                       </svg>
@@ -157,73 +157,6 @@
         link.addEventListener('click', closeMobileMenu);
     });
 
-    // Theme toggle functionality
-    const themeToggleBtnDesktop = document.getElementById('theme-toggle-button-desktop');
-    const themeToggleDarkIconDesktop = document.getElementById('theme-toggle-dark-icon-desktop');
-    const themeToggleLightIconDesktop = document.getElementById('theme-toggle-light-icon-desktop');
-
-    const themeToggleBtnMobile = document.getElementById('theme-toggle-button-mobile');
-    const themeToggleDarkIconMobile = document.getElementById('theme-toggle-dark-icon-mobile');
-    const themeToggleLightIconMobile = document.getElementById('theme-toggle-light-icon-mobile');
-
-    function updateIcons(isDarkMode) {
-        if (themeToggleDarkIconDesktop && themeToggleLightIconDesktop) {
-            if (isDarkMode) {
-                themeToggleLightIconDesktop.classList.remove('hidden');
-                themeToggleDarkIconDesktop.classList.add('hidden');
-            } else {
-                themeToggleLightIconDesktop.classList.add('hidden');
-                themeToggleDarkIconDesktop.classList.remove('hidden');
-            }
-        }
-        if (themeToggleDarkIconMobile && themeToggleLightIconMobile) {
-            if (isDarkMode) {
-                themeToggleLightIconMobile.classList.remove('hidden');
-                themeToggleDarkIconMobile.classList.add('hidden');
-            } else {
-                themeToggleLightIconMobile.classList.add('hidden');
-                themeToggleDarkIconMobile.classList.remove('hidden');
-            }
-        }
-    }
-
-    function applyTheme(isDarkMode) {
-        if (isDarkMode) {
-            document.documentElement.classList.add('dark');
-            localStorage.setItem('color-theme', 'dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-            localStorage.setItem('color-theme', 'light');
-        }
-        updateIcons(isDarkMode);
-    }
-
-    let initialIsDarkMode = false;
-    if (localStorage.getItem('color-theme') === 'dark' || 
-        (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        initialIsDarkMode = true;
-    }
-    if (initialIsDarkMode && !document.documentElement.classList.contains('dark')) {
-         document.documentElement.classList.add('dark');
-    }
-    applyTheme(initialIsDarkMode);
-
-    function themeToggleClickHandler() {
-        const isCurrentlyDark = document.documentElement.classList.contains('dark');
-        applyTheme(!isCurrentlyDark);
-        
-        if (window.innerWidth < 768) {
-            closeMobileMenu();
-        }
-    }
-
-    if (themeToggleBtnDesktop) {
-        themeToggleBtnDesktop.addEventListener('click', themeToggleClickHandler);
-    }
-    if (themeToggleBtnMobile) {
-        themeToggleBtnMobile.addEventListener('click', themeToggleClickHandler);
-    }
-    
     mobileMenu.addEventListener('click', function(event) {
         if (event.target === mobileMenu) {
             closeMobileMenu();

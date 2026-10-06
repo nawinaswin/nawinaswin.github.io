@@ -1,0 +1,21 @@
+<article class="project-card overflow-hidden rounded-lg border border-border-primary-light dark:border-border-primary-dark">
+    {{ with .image }}
+    <a href="{{ $.link | relURL }}" class="block" tabindex="-1" aria-hidden="true">
+        <img src="{{ . | relURL }}" alt="{{ $.image_alt | default $.title }}" class="project-demo" loading="lazy" decoding="async">
+    </a>
+    {{ end }}
+    <div class="p-6">
+        <h3 class="text-xl md:text-2xl font-bold mb-3 text-text-primary-light dark:text-text-primary-dark">
+            <a href="{{ .link | relURL }}">{{ .title }}</a>
+        </h3>
+        {{ with .tech }}
+        <div class="flex flex-wrap gap-2 mb-4">
+            {{ range split . "," }}
+            <span class="px-2 py-1 rounded-md bg-bg-tertiary-light dark:bg-bg-tertiary-dark text-xs text-text-secondary-light dark:text-text-secondary-dark">{{ strings.TrimSpace . }}</span>
+            {{ end }}
+        </div>
+        {{ end }}
+        <p class="text-text-secondary-light dark:text-text-secondary-dark mb-4">{{ .description }}</p>
+        <a href="{{ .link | relURL }}" class="inline-block text-accent-light dark:text-accent-dark underline underline-offset-4">View project →</a>
+    </div>
+</article>

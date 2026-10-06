@@ -1,0 +1,66 @@
+:root {
+  color-scheme: dark;
+  --page-background: #242424;
+  --surface-primary: rgba(255, 255, 255, 0.025);
+  --surface-secondary: rgba(255, 255, 255, 0.045);
+  --surface-tertiary: rgba(255, 255, 255, 0.075);
+  --text-primary: #f3f4f6;
+  --text-secondary: #c1c4cc;
+  --text-tertiary: #a3a8b3;
+  --border-primary: rgba(190, 198, 212, 0.24);
+  --border-secondary: rgba(190, 198, 212, 0.16);
+  --accent: #7dd3fc;
+}
+
+html.dark {
+  --page-background: #050505;
+  --surface-primary: rgba(255, 255, 255, 0.02);
+  --surface-secondary: rgba(255, 255, 255, 0.04);
+  --surface-tertiary: rgba(255, 255, 255, 0.07);
+}
+
+html {
+  background-color: var(--page-background);
+  color: var(--text-primary);
+}
+
+body {
+  position: relative;
+  isolation: isolate;
+  background-color: var(--page-background);
+  color: var(--text-primary);
+  transition: background-color 180ms ease;
+}
+
+html .border { border-color: var(--border-primary); }
+html .text-gray-400, html .text-gray-500 { color: var(--text-tertiary); }
+html .project-card {
+  background: var(--surface-secondary);
+}
+
+#mobile-menu, .language-dropdown { background-color: var(--page-background); }
+
+.site-prose { color: var(--text-secondary); line-height: 1.8; overflow-wrap: anywhere; }
+.site-prose p { margin-bottom: 1.25rem; }
+.site-prose h2 { color: var(--text-primary); font-size: 1.6rem; font-weight: 700; line-height: 1.35; margin: 2rem 0 1rem; }
+.site-prose h3 { color: var(--text-primary); font-size: 1.25rem; font-weight: 600; margin: 1.5rem 0 0.75rem; }
+.site-prose ul, .site-prose ol { padding-left: 1.5rem; margin-bottom: 1.25rem; }
+.site-prose ul { list-style: disc; }
+.site-prose ol { list-style: decimal; }
+.site-prose li { margin-bottom: 0.5rem; }
+.site-prose a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.site-prose pre { overflow-x: auto; padding: 1rem; border-radius: 0.5rem; }
+.site-prose img { max-width: 100%; height: auto; }
+
+.project-demo {
+  display: block;
+  width: 100%;
+  max-height: 32rem;
+  object-fit: contain;
+  padding: 1.25rem;
+  background: rgba(0, 0, 0, 0.14);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body { transition: none; }
+}

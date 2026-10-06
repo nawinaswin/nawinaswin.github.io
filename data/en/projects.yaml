@@ -1,4 +1,10 @@
 projects:
+  - title: "Saxon"
+    image: "/images/projects/saxon-icon.png"
+    image_alt: "Saxon application icon"
+    tech: "C++20, SwiftUI, whisper.cpp, FFmpeg, SQLite"
+    description: "Local-first macOS dictation with a native menu-bar app, on-device Whisper transcription, and a C++ daemon."
+    link: "/projects/saxon/"
   - title: "Distributed Log"
     image: "/images/project-placeholder.jpg"
     tech: "Go, Raft, Docker"

@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="robots" content="noindex, nofollow">
         <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
+        <script src="{{ "js/theme.js" | relURL }}"></script>
+        <link rel="stylesheet" href="{{ "css/site-theme.css" | relURL }}">
         
         <!-- Favicon here-->
         <link rel="apple-touch-icon" sizes="180x180" href="{{ .Site.BaseURL }}favicon_io/apple-touch-icon.png">
@@ -14,20 +16,6 @@
         <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
         <link rel="preload" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" as="style">            
         <style>
-            html, body {
-                background-color: transparent; 
-                color: #1f2937; 
-            }
-            html.dark, html.dark body {
-                background-color: transparent; 
-                color: #f3f4f6; 
-            }
-            .border { 
-                border-color: #d4d4d8; 
-            }
-            html.dark .border {
-                border-color: #374151; 
-            }
             .carousel-item {
                 display: inline-block;
                 margin: 0 1rem;
@@ -57,18 +45,27 @@
         </style>
         
         <script src="https://cdn.tailwindcss.com"></script>
-        <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
         <script>
-            if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                document.documentElement.classList.add('dark');
-            } else {
-                document.documentElement.classList.remove('dark');
+            const siteColors = {};
+            for (const mode of ['light', 'dark']) {
+                for (const [name, variable] of Object.entries({
+                    'bg-primary': 'surface-primary',
+                    'bg-secondary': 'surface-secondary',
+                    'bg-tertiary': 'surface-tertiary',
+                    'text-primary': 'text-primary',
+                    'text-secondary': 'text-secondary',
+                    'text-tertiary': 'text-tertiary',
+                    'border-primary': 'border-primary',
+                    'border-secondary': 'border-secondary',
+                    'accent': 'accent'
+                })) {
+                    siteColors[`${name}-${mode}`] = `var(--${variable})`;
+                }
             }
+            tailwind.config = { darkMode: 'class', theme: { extend: { colors: siteColors } } };
         </script>
+        <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
         <style>
-            :root {
-                color-scheme: light dark;
-            }
             
             .tech-icon {
                 filter: grayscale(100%) brightness(200%);
@@ -115,7 +112,7 @@
             }
         </style>
     </head>
-    <body class="min-h-screen bg-bg-primary-light dark:bg-bg-primary-dark text-text-primary-light dark:text-text-primary-dark">
+    <body class="min-h-screen text-text-primary-light dark:text-text-primary-dark">
         {{ partial "header" . }}
         <main class="relative z-10">
             {{ block "main" . }}{{ end }}

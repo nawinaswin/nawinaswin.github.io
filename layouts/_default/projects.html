@@ -4,7 +4,13 @@
     
     <div class="grid grid-cols-1 gap-6 md:gap-8 max-w-3xl mx-auto">
         {{ range .RegularPages }}
+        {{ $project := . }}
         <div class="project-card relative overflow-hidden rounded-lg bg-[#121212] border border-gray-700 transition-all duration-300 group">
+            {{ with .Params.image }}
+            <a href="{{ $project.RelPermalink }}" class="block" tabindex="-1" aria-hidden="true">
+                <img src="{{ . | relURL }}" alt="{{ $project.Params.image_alt | default $project.Title }}" class="project-demo" loading="lazy" decoding="async">
+            </a>
+            {{ end }}
             <div class="p-6 flex flex-col justify-between h-full">
                 <div>
                     <h3 class="text-xl md:text-2xl font-bold mb-2 text-white line-clamp-2">
