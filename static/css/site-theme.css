@@ -50,15 +50,24 @@ html .project-card {
 .site-prose li { margin-bottom: 0.5rem; }
 .site-prose a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
 .site-prose pre { overflow-x: auto; padding: 1rem; border-radius: 0.5rem; }
-.site-prose img { max-width: 100%; height: auto; }
-
+.site-prose img,
+.prose img,
+.bio-content img,
 .project-demo {
   display: block;
-  width: 100%;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.project-demo {
   max-height: 32rem;
-  object-fit: contain;
-  padding: 1.25rem;
-  background: rgba(0, 0, 0, 0.14);
+  margin-inline: auto;
 }
 
 @media (prefers-reduced-motion: reduce) {

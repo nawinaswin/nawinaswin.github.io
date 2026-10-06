@@ -14,14 +14,17 @@ Static site built with [Hugo](https://gohugo.io/) and the [hugo-noir](https://gi
 ├── archetypes/        # Content templates
 │   ├── blogs.md
 │   ├── default.md
-│   └── projects.md
+│   ├── projects.md
+│   └── research.md
 ├── content/           # Markdown content
 │   ├── _index.md      # Home page
 │   ├── about.md
 │   ├── contact.md
-│   ├── research.md
+│   ├── research/       # Individual research ideas and notes
+│   │   └── _index.md
 │   ├── blogs/         # Blog posts
 │   │   ├── _index.md
+│   │   ├── hard-problem-epistemic-boundary.md
 │   │   └── welcome-to-my-blog.md
 │   └── projects/      # Project pages
 │       ├── _index.md
@@ -40,6 +43,9 @@ Static site built with [Hugo](https://gohugo.io/) and the [hugo-noir](https://gi
 │   └── partials/
 │       └── header.html
 ├── static/            # Static assets
+│   ├── images/
+│   │   └── projects/
+│   │       └── saxon-icon.png
 │   └── robots.txt
 ├── .github/
 │   └── workflows/
@@ -85,11 +91,44 @@ Output is written to the `public/` directory.
 hugo new blogs/my-new-post.md
 ```
 
+### Research Notes
+
+Each idea is a separate Markdown file in `content/research/`. The Research page
+automatically lists published notes with the newest first.
+
+```bash
+hugo new research/my-research-idea.md
+```
+
+This uses `archetypes/research.md`, with sections for the question, idea, approach,
+and references. New notes start with `draft: true`; change it to `false` when ready
+to publish. You can also create files directly in `content/research/` with title,
+date, and draft status in their front matter. Edit `content/research/_index.md` to
+change the section's introduction.
+
 ### Projects
 
 ```bash
 hugo new projects/my-project.md
 ```
+
+### Images in Markdown
+
+Put shared images in `static/images/`, with optional folders such as `projects/`,
+`blogs/`, or `research/`. Hugo publishes the contents of `static/` at the website
+root, so omit `static` from the image URL:
+
+```markdown
+![Saxon application icon](/images/projects/saxon-icon.png)
+```
+
+That URL refers to `static/images/projects/saxon-icon.png` in this repository,
+not to a folder inside `content/projects/`.
+
+Images retain their original proportions and have no added background, border,
+padding, or rounded-corner mask. Use a transparent PNG or WebP if you want the
+page background to show through the image's corners; black pixels already in an
+image remain part of the image.
 
 ## Deployment
 

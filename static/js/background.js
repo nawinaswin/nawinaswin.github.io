@@ -24,11 +24,59 @@ const spacing = 36;
 const dotRadius = 1.1;
 const influenceRadius = 200;
 
+const gravitationalWave = {
+  interval: 20000,
+  duration: 7200,
+  initialDelay: 1200,
+  amplitude: 14,
+};
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const noWaveOffset = { x: 0, y: 0 };
+let animationStart = null;
+
+function waveStateAt(time) {
+  if (reducedMotion.matches || animationStart === null) return null;
+  const elapsed = time - animationStart - gravitationalWave.initialDelay;
+  if (elapsed < 0) return null;
+  const phase = elapsed % gravitationalWave.interval;
+  if (phase >= gravitationalWave.duration) return null;
+
+  // A source just beyond the left edge produces a gently curved wavefront.
+  const sourceX = -Math.max(canvas.width * 0.6, canvas.height * 0.8, 360);
+  const sourceY = canvas.height * 0.5;
+  const width = Math.max(160, Math.min(260, canvas.width * 0.22));
+  const nearest = -sourceX;
+  const farthest = Math.hypot(canvas.width - sourceX, canvas.height * 0.5);
+  return {
+    sourceX,
+    sourceY,
+    width,
+    wavelength: width * 0.9,
+    radius: nearest - width + (farthest - nearest + width * 2) * phase / gravitationalWave.duration,
+  };
+}
+
+function waveOffsetAt(x, y, wave) {
+  const dx = x - wave.sourceX;
+  const dy = y - wave.sourceY;
+  const distance = Math.hypot(dx, dy);
+  const offset = distance - wave.radius;
+  const normalized = offset / wave.width;
+  if (Math.abs(normalized) >= 1 || distance === 0) return noWaveOffset;
+
+  // Stretch and compress the mesh in a short packet, smoothly returning it
+  // to its original shape before the next pass. No bright line is overlaid.
+  const envelope = (1 - normalized * normalized) ** 2;
+  const ripple = Math.sin(offset / wave.wavelength * Math.PI * 2) * envelope * gravitationalWave.amplitude;
+  return { x: dx / distance * ripple, y: dy / distance * ripple };
+}
+
 // Tune the recession beneath panels here. Open space keeps the original grid.
 const panelEffect = {
   fade: 0.5,
   falloff: 56,
-  displacement: 6,
+  displacement: 9,
+  maxDisplacement: 12,
   weight: 0.65,
   dotShrink: 0.16,
 };
@@ -78,14 +126,16 @@ function panelDepthAt(x, y) {
   }
   return {
     depth,
-    offsetX: Math.max(-8, Math.min(8, offsetX)),
-    offsetY: Math.max(-8, Math.min(8, offsetY)),
+    offsetX: Math.max(-panelEffect.maxDisplacement, Math.min(panelEffect.maxDisplacement, offsetX)),
+    offsetY: Math.max(-panelEffect.maxDisplacement, Math.min(panelEffect.maxDisplacement, offsetY)),
   };
 }
 
 function draw(time) {
+  if (animationStart === null) animationStart = time;
   if (panelsDirty) refreshPanels();
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  const wave = waveStateAt(time);
 
   const cols = Math.ceil(canvas.width / spacing) + 1;
   const rows = Math.ceil(canvas.height / spacing) + 1;
@@ -105,8 +155,9 @@ function draw(time) {
       const strength = influence * influence * 0.45 * wobble * recession;
       const warpX = -dx * strength;
       const warpY = -dy * strength;
-      const x = baseX + warpX + pressure.offsetX;
-      const y = baseY + warpY + pressure.offsetY;
+      const ripple = wave ? waveOffsetAt(baseX, baseY, wave) : noWaveOffset;
+      const x = baseX + warpX + pressure.offsetX + ripple.x * recession;
+      const y = baseY + warpY + pressure.offsetY + ripple.y * recession;
       const depth = panelDepthAt(x, y).depth;
       const radius = (dotRadius + influence * 2.2 * recession) * (1 - depth * panelEffect.dotShrink);
       points.push({ x, y, radius, depth });

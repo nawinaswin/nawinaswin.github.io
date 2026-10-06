@@ -1,0 +1,31 @@
+{{ define "main" }}
+<div class="w-full md:w-3/4 lg:w-1/2 mx-auto px-4 py-12">
+    <h1 class="text-3xl md:text-5xl font-bold mb-6 text-text-primary-light dark:text-text-primary-dark">{{ .Title }}</h1>
+    <div class="site-prose mb-10">{{ .Content }}</div>
+
+    <div class="space-y-6 max-w-3xl mx-auto">
+        {{ range .RegularPages.ByDate.Reverse }}
+        <article class="border border-border-primary-light dark:border-border-primary-dark rounded-lg p-6 bg-bg-secondary-light dark:bg-bg-secondary-dark">
+            {{ if not .Date.IsZero }}
+            <time datetime="{{ .Date.Format "2006-01-02" }}" class="block text-sm mb-3 text-text-secondary-light dark:text-text-secondary-dark">{{ .Date.Format "January 2, 2006" }}</time>
+            {{ end }}
+            <h2 class="text-xl md:text-2xl font-semibold mb-3">
+                <a href="{{ .RelPermalink }}" class="text-accent-light dark:text-accent-dark hover:underline underline-offset-4">{{ .Title }}</a>
+            </h2>
+            <p class="text-text-secondary-light dark:text-text-secondary-dark mb-4">{{ .Description | default (.Summary | plainify) }}</p>
+            {{ with .Params.tags }}
+            <div class="flex flex-wrap gap-2">
+                {{ range . }}
+                <span class="px-2 py-1 text-xs rounded-md bg-bg-tertiary-light dark:bg-bg-tertiary-dark text-text-secondary-light dark:text-text-secondary-dark">{{ . }}</span>
+                {{ end }}
+            </div>
+            {{ end }}
+        </article>
+        {{ else }}
+        <div class="border border-border-primary-light dark:border-border-primary-dark rounded-lg p-6 bg-bg-secondary-light dark:bg-bg-secondary-dark">
+            <p class="text-text-secondary-light dark:text-text-secondary-dark">Research notes coming soon.</p>
+        </div>
+        {{ end }}
+    </div>
+</div>
+{{ end }}
