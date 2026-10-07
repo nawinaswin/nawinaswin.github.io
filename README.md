@@ -130,6 +130,34 @@ padding, or rounded-corner mask. Use a transparent PNG or WebP if you want the
 page background to show through the image's corners; black pixels already in an
 image remain part of the image.
 
+### Background Curvature
+
+Cards bend the background grid for roughly 4.5–5 cells (162–180px) beyond their
+edges. Mass increases with visible character count, font size, font weight, and
+heading text. Standalone headings exert a smaller pull; headings inside a card
+contribute to that card. Nested cards count their own content once.
+
+The build records byte sizes for images, GIFs, video, and audio in `static/`.
+Media contributes mass on a logarithmic scale, with a cap on the total effect.
+External media and embeds use a modest estimate. Supply `data-gravity-bytes` on a
+media element when its size is known, for example:
+
+```html
+<video src="https://example.com/demo.mp4" data-gravity-bytes="2097152" controls></video>
+```
+
+Mass is cached until content, media, fonts, or layout changes; scrolling updates
+only element positions. No extra media downloads are made to calculate mass.
+Tune `panelEffect` and `contentMass` near the top of `static/js/background.js`.
+Curvature reach and fading distance are independent.
+
+Run the calculation and animation regression checks with Node.js (no package
+installation or browser required):
+
+```bash
+node --test tests/background.test.cjs
+```
+
 ## Deployment
 
 The workflow in `.github/workflows/deploy.yml` builds and deploys the site to

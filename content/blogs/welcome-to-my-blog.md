@@ -1,7 +1,7 @@
 ---
 
 title: "Welcome to My Blog"
-date: 2026-08-31
+date: 2022-02-27
 tags: ["meta", "hugo"]
 draft: false
 ------------

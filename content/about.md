@@ -9,4 +9,6 @@ I'm **Nawin Sakthivelan**, a machine learning engineer based in San Francisco, C
 
 I've worked across applied ML research, production engineering, and financial analytics at IBM, Gilbarco Veeder Root, and Standard Chartered. This blog is where I share research notes, projects, and technical writing about machine learning and systems engineering.
 
-You can reach me at [nawinaswins@gmail.com](mailto:nawinaswins@gmail.com) or [+1 (917) 344-0679](tel:+1-917-344-0679), find my code on [GitHub](https://github.com/nawinaswin), or connect on [LinkedIn](https://www.linkedin.com/in/nawinsakthivelan/).
+You can reach me at [nawinaswins@gmail.com](mailto:nawinaswins@gmail.com), find my code on [GitHub](https://github.com/nawinaswin), or connect on [LinkedIn](https://www.linkedin.com/in/nawinsakthivelan/).
+
+<!--or [+1 (917) 344-0679](tel:+1-917-344-0679)>

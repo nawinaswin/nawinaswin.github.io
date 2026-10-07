@@ -1,7 +1,7 @@
 ---
 
 title: "The Future of Deep Learning Might Be Graphical"
-date: 2026-10-05
+date: 2026-05-05
 tags: ["deep-learning", "graph-networks", "neuroscience", "machine-learning", "learning"]
 draft: false
 ------------

@@ -118,6 +118,7 @@
             {{ block "main" . }}{{ end }}
         </main>
         {{ partial "footer" . }}
+        <script type="application/json" id="gravity-media-sizes">{{ partialCached "media-sizes.html" (dict "directory" "static" "url" "/") | jsonify | safeJS }}</script>
         <script src="{{ "js/background.js" | relURL }}"></script>
     </body>
 </html> 

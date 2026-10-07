@@ -1,6 +1,6 @@
 ---
 title: "Saxon"
-date: 2026-10-05
+date: 2024-10-03
 draft: false
 description: "Local-first macOS dictation with a native SwiftUI menu-bar app and a C++ Whisper inference daemon."
 summary: "Local-first macOS dictation with a native SwiftUI menu-bar app, on-device Whisper transcription, and a C++ daemon."

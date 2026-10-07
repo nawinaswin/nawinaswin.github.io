@@ -1,0 +1,14 @@
+{{- /* Return local media sizes without reading/downloading the media contents. */ -}}
+{{- $sizes := dict -}}
+{{- $directory := .directory -}}
+{{- $url := .url -}}
+{{- range os.ReadDir $directory -}}
+    {{- $file := path.Join $directory .Name -}}
+    {{- $mediaURL := path.Join $url .Name -}}
+    {{- if .IsDir -}}
+        {{- $sizes = merge $sizes (partial "media-sizes.html" (dict "directory" $file "url" $mediaURL)) -}}
+    {{- else if in (slice ".avif" ".gif" ".jpeg" ".jpg" ".png" ".svg" ".webp" ".mp4" ".webm" ".mov" ".m4v" ".ogv" ".mp3" ".m4a" ".ogg" ".wav" ".flac") (lower (path.Ext .Name)) -}}
+        {{- $sizes = merge $sizes (dict ($mediaURL | relURL) .Size) -}}
+    {{- end -}}
+{{- end -}}
+{{- return $sizes -}}
