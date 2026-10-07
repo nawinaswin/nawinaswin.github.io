@@ -50,6 +50,8 @@ html .project-card {
 .site-prose li { margin-bottom: 0.5rem; }
 .site-prose a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
 .site-prose pre { overflow-x: auto; padding: 1rem; border-radius: 0.5rem; }
+.site-prose .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.25rem 0; }
+.site-prose .katex-display > .katex { width: max-content; min-width: 100%; }
 .site-prose img,
 .prose img,
 .bio-content img,

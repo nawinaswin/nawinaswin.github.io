@@ -65,8 +65,7 @@ Then the connectivity itself becomes part of the model.
 You might have dynamics something like
 
 $$
-\tau_i\dot v_i
-=
+\tau_i\dot v_i =
 -v_i+
 \sum_j C_{ij}w_{ij}\phi(v_j)
 +
@@ -108,8 +107,7 @@ $$
 and training could minimize
 
 $$
-\mathcal L
-=
+\mathcal L =
 \sum_t
 \|y_t-\hat y_t\|^2.
 $$
@@ -203,8 +201,7 @@ Then, when a reward or error signal eventually arrives, the system can use that 
 Mathematically, you might have something resembling
 
 $$
-\Delta w_{ij}(t)
-=
+\Delta w_{ij}(t) =
 -\eta L_j(t)e_{ij}(t),
 $$
 
@@ -214,8 +211,7 @@ Conceptually:
 
 $$
 \boxed{
-\text{weight change}
-=
+\text{weight change} =
 \text{local history}
 \times
 \text{eligibility}
@@ -245,8 +241,7 @@ the system maintains traces that evolve online.
 For example,
 
 $$
-\epsilon_{x,t}
-=
+\epsilon_{x,t} =
 \alpha\epsilon_{x,t-1}
 +
 x_t.

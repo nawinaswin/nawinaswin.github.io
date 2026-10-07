@@ -10,6 +10,12 @@ defaultContentLanguage = 'en'
 
 disableKinds = ['RSS', 'sitemap']
 
+[markup.goldmark.extensions.passthrough]
+  enable = true
+  [markup.goldmark.extensions.passthrough.delimiters]
+    block = [['\[', '\]'], ['$$', '$$']]
+    inline = [['\(', '\)']]
+
 [taxonomies]
   category = 'categories'
   tag = 'tags'

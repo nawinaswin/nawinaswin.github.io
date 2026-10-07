@@ -106,6 +106,40 @@ to publish. You can also create files directly in `content/research/` with title
 date, and draft status in their front matter. Edit `content/research/_index.md` to
 change the section's introduction.
 
+### Math in Markdown
+
+Research notes, blog posts, and other Markdown pages support LaTeX formulas.
+Use `\(...\)` for inline math and either `$$...$$` or `\[...\]` for display math:
+
+```markdown
+The connection strength is \(w_{ij}\).
+
+$$
+\Delta w_{ij} = -\eta L_j(t)e_{ij}(t)
+$$
+
+\[
+\mathbf{w}\cdot\mathbf{x}
+\]
+```
+
+Keep formulas outside code fences and backticks, which intentionally show literal
+text. Single dollar signs remain ordinary text (for example, prices); use
+`\(...\)` instead of `$...$` for inline formulas.
+
+Keep `=` on the same line as part of the equation, as in the example above.
+A line containing only `=` is interpreted as a Markdown heading underline by
+Hugo's parser, which can break a math block before it reaches the renderer.
+
+Hugo preserves these delimiters and renders the formulas during the build using
+its bundled KaTeX engine, following the [Hugo math render hook approach](https://gohugo.io/render-hooks/passthrough/).
+Pages containing math load the matching KaTeX stylesheet and fonts from jsDelivr;
+no browser-side math JavaScript or per-page `math: true` setting is needed.
+Invalid or unsupported LaTeX fails the build with the source location, so run
+`hugo --minify` before publishing. Wide equations scroll horizontally on small
+screens. When upgrading Hugo, keep the stylesheet version in
+`layouts/_default/baseof.html` aligned with the KaTeX version shown by `hugo env`.
+
 ### Projects
 
 ```bash
