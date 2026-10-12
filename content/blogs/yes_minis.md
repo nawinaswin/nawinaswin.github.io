@@ -1,11 +1,9 @@
-----
-
-title: “Can One Be Slightly Moral?”
+---
+title: "Can One Be Slightly Moral?"
 date: 2026-10-12
 tags: [philosophy, morality, absurdism, free-will, political-philosophy]
-description: “On moral categories, imperfect agents, collective responsibility, and the possibility of becoming slightly better without knowing what morality ultimately is.”
-
------
+description: "On moral categories, imperfect agents, collective responsibility, and the possibility of becoming slightly better without knowing what morality ultimately is."
+---
 
 # Can One Be Slightly Moral?
 

@@ -38,7 +38,56 @@ html .project-card {
   background: var(--surface-secondary);
 }
 
-#mobile-menu, .language-dropdown { background-color: var(--page-background); }
+#mobile-menu { background-color: var(--page-background); }
+#bg-canvas[hidden] { display: none; }
+
+.settings-dropdown {
+  position: absolute;
+  top: calc(100% + 0.75rem);
+  right: 0;
+  z-index: 60;
+  width: min(18rem, calc(100vw - 2rem));
+  padding: 1rem;
+  border: 1px solid var(--border-primary);
+  border-radius: 0.75rem;
+  background-color: var(--page-background);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+.settings-dropdown[hidden] { display: none; }
+
+.settings-switch {
+  display: inline-flex;
+  width: 2.75rem;
+  height: 1.5rem;
+  flex: 0 0 auto;
+  align-items: center;
+  padding: 0.125rem;
+  border: 1px solid var(--border-primary);
+  border-radius: 9999px;
+  background-color: var(--surface-tertiary);
+  transition: background-color 180ms ease;
+}
+
+.settings-switch[aria-checked="true"] { background-color: var(--accent); }
+
+.settings-switch:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.settings-switch-thumb {
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  transform: translateX(0);
+  transition: transform 180ms ease;
+}
+
+.settings-switch[aria-checked="true"] .settings-switch-thumb { transform: translateX(1.25rem); }
 
 .site-prose { color: var(--text-secondary); line-height: 1.8; overflow-wrap: anywhere; }
 .site-prose p { margin-bottom: 1.25rem; }
@@ -74,4 +123,5 @@ html .project-card {
 
 @media (prefers-reduced-motion: reduce) {
   body { transition: none; }
+  .settings-switch, .settings-switch-thumb { transition: none; }
 }

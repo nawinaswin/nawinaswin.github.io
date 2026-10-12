@@ -1,6 +1,14 @@
 const canvas = document.createElement('canvas');
 const ctx = canvas.getContext('2d');
 canvas.id = 'bg-canvas';
+const animationStorageKey = 'background-animation';
+let animationEnabled = true;
+try {
+  animationEnabled = localStorage.getItem(animationStorageKey) !== 'off';
+} catch (_) {
+  // The background remains enabled by default when storage is unavailable.
+}
+canvas.hidden = !animationEnabled;
 document.body.insertBefore(canvas, document.body.firstChild);
 
 function resize() {
@@ -286,6 +294,7 @@ function panelDepthAt(x, y) {
 }
 
 function draw(time) {
+  if (!animationEnabled) return;
   if (animationStart === null) animationStart = time;
   if (panelsDirty) refreshPanels();
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -361,7 +370,20 @@ function draw(time) {
   }
   ctx.globalAlpha = 1;
 
-  requestAnimationFrame(draw);
+  if (animationEnabled) requestAnimationFrame(draw);
 }
 
-requestAnimationFrame(draw);
+window.addEventListener('background-animation-change', (event) => {
+  const enabled = event.detail?.enabled !== false;
+  if (enabled === animationEnabled) return;
+  animationEnabled = enabled;
+  canvas.hidden = !enabled;
+  if (enabled) {
+    animationStart = null;
+    requestAnimationFrame(draw);
+  } else {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+});
+
+if (animationEnabled) requestAnimationFrame(draw);
