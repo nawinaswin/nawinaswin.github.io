@@ -261,3 +261,5 @@ The architecture leaves room for a future private/restricted-content system. Do 
 ## License
 
 The theme is licensed under its original terms. Site content is your own.
+Attribution for icon [Ico icons created by Becris - Flaticon](https://www.flaticon.com/free-icons/ico "ico icons")
+
