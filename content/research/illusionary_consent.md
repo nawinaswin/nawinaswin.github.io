@@ -20,7 +20,7 @@ Reinforcement learning offers a useful formal analogue to this problem. Nan Jian
 
 The distinction between what is internal and what is external becomes considerably less obvious when we consider that the internal was produced by the external, and that the external continues to shape the internal. There is no clean separation between the world and the organism that inhabits it. There is only a world state evolving, with what we call the self being one of its configurations.
 
-This becomes particularly troublesome when we consider consent.
+## This becomes particularly troublesome when we consider something topical as consent.
 
 Consent appears to require a boundary around an individual whose authorization matters. We ask whether a person agreed, whether the decision was theirs, whether they understood what they were agreeing to, whether they were coerced or manipulated. These are important questions. But what exactly are we identifying when we say that a decision was genuinely theirs?
 
@@ -38,7 +38,7 @@ I doubt that reason could have emerged in anything resembling its present form w
 
 There is a difference between arriving at an intuitive judgment and examining that judgment as a proposition. I can believe something without being able to articulate why I believe it. But once I represent that belief, I can inspect it, compare it against other beliefs, identify contradictions, examine its implications, and revise it. The representation persists beyond the transient cognitive event that produced it. It becomes something upon which further cognition can operate.
 
-This is what makes reflection interesting. Cognition becomes an object available to cognition.
+*This is what makes reflection interesting. Cognition becomes an object available to cognition.*
 
 I would distinguish this from the more general information processing that occurs within a nervous system. An organism can learn, predict, discriminate, and respond without necessarily engaging in reflective reasoning. The existence of sophisticated inference-like processes does not, by itself, establish the existence of reason in the stronger sense I have in mind: the capacity to make judgments objects of examination and to assess them according to rules.
 
@@ -58,7 +58,7 @@ And perhaps this brings us back to consent.
 
 If the preferences by which I consent are causally produced by the world, and the rational faculties by which I evaluate those preferences are themselves partly constituted through interactions with the world, then what exactly justifies treating the individual as an independently originating authority over the decision?
 
-I do not have a complete answer. Nor do I think the absence of such an answer licenses us to disregard consent. The practical importance of consent may survive the failure of its conventional metaphysical foundations. We can still distinguish coercion from persuasion, deception from informed agreement, and the violation of bodily boundaries from respect for them. These distinctions can matter enormously without requiring an uncaused self.
+I do not have a complete answer. Nor do I think the absence of such an answer licenses us to disregard consent. The practical importance of consent may survive the failure of its conventional metaphysical foundations. We can still distinguish coercion from persuasion, deception from informed agreement, and the violation of bodily boundaries from respect for them. These distinctions can matter enormously without requiring an uncaused self, and the preservation against irreversibility is imperative.
 
 Perhaps the mistake is to expect ethics to rest on a metaphysically independent agent in the first place. We are configurations of a causally evolving world, capable of representing possible states of that world, understanding some of their consequences, and constructing principles to constrain what happens next.
 
