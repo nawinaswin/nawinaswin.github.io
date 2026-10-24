@@ -101,6 +101,8 @@ html .project-card {
 .site-prose pre { overflow-x: auto; padding: 1rem; border-radius: 0.5rem; }
 .site-prose .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.25rem 0; }
 .site-prose .katex-display > .katex { width: max-content; min-width: 100%; }
+img { border-radius: 0.5rem; }
+
 .site-prose img,
 .prose img,
 .bio-content img,
@@ -111,7 +113,7 @@ html .project-card {
   max-width: 100%;
   padding: 0;
   border: 0;
-  border-radius: 0;
+  border-radius: 0.5rem;
   background: transparent;
   box-shadow: none;
 }
