@@ -1,6 +1,6 @@
 ---
 title: "Alexandria, Hoboken: The Doppelgängers"
-date: 2026-10-23
+date: 2025-05-23
 tags: ["Alexandria", "Hoboken", "urban-geography", "cities", "personal-observations"]
 draft: false
 ---
@@ -9,7 +9,7 @@ Alexandria, Hoboken: The Doppelgängers
 
 It’s interesting that, you know, I’ve lived in Hoboken when I went to Stevens Institute of Technology, and I’ve also spent a good amount of time in DC and Virginia, including Alexandria. And come to think of it, Alexandria and Hoboken have a lot of similarities, don’t they?
 
-Obviously, looking at the map from up, the grid-like structure of Old Town Alexandria and Hoboken looks very similar. And that’s one of the basic similarities. Both have this sort of square, roughly one-square-mile urban structure along a river waterfront, which is kind of odd when you think about it. Alexandria itself is much larger, of course, but the historic grid of Old Town is almost comparable in size to Hoboken. Hoboken might be a little smaller, but they’re in the same ballpark.
+Obviously, looking at the map from up, the grid-like structure of Old Town Alexandria and Hoboken looks very similar. And that’s one of the basic similarities. Both have this sort of square, roughly one-square-mile urban structure along a river waterfront, which is kind of odd when you think about it. Alexandria itself is much larger, of course, but the historic grid of Old Town is almost comparable in size to Hoboken. Hoboken might be a little smaller, but they’re in the same ballpark.  But I've also spoke to some people at the Hoboken Cove kayaking community and they really do really feel proud about their small little community in the one square mile,  that seemingly is part of and away from all the urban nonsense that goes around in the New York metropolitan area.
 
 And then there’s the waterfront. Both have this very distinct relationship with the river, with the grid extending toward it, and with the transportation infrastructure sitting along the edges of the urban structure.
 

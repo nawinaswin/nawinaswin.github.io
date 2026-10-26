@@ -1,7 +1,7 @@
 ---
 
 title: "Brilliance of Issac Asimov"
-date: 2026-10-06
+date: 2024-10-06
 tags: ["movies", "science-fiction", "robotics", "machine-learning", "cognition", "silicon"]
 draft: false
 ------------
