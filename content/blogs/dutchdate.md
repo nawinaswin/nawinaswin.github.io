@@ -1,7 +1,7 @@
 ---
 title: “Dutch Date”
 date: 2022-10-23
-draft: true
+draft: false
 description: “Who pays, who owes, and who gets to call it a preference?”
 tags: [“personal”, “dating”, “feminism”, “philosophy”]
 ---
